@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/pop">
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.example.learnnavigation.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" >
+        <action
+            android:id="@+id/blank_to_third"
+            app:destination="@id/third"
+            app:enterAnim="@transition/slide_in_right"
+            app:exitAnim="@transition/slide_out_left"
+            app:popEnterAnim="@transition/slide_in_left"
+            app:popExitAnim="@transition/slide_out_right"
+            app:popUpTo="@+id/pop" />
+        <action
+            android:id="@+id/blank_to_4"
+            app:destination="@id/fourth"
+            app:enterAnim="@transition/slide_in_right"
+            app:exitAnim="@transition/slide_out_left"
+            app:popEnterAnim="@transition/slide_in_left"
+            app:popExitAnim="@transition/slide_out_right"
+            app:popUpTo="@+id/blankFragment" />
+        <argument
+            android:name="someString"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/pop"
+        android:name="com.example.learnnavigation.pop"
+        android:label="fragment_pop"
+        tools:layout="@layout/fragment_pop" >
+        <action
+            android:id="@+id/pop_to_blank"
+            app:destination="@id/blankFragment"
+            app:enterAnim="@transition/slide_in_right"
+            app:exitAnim="@transition/slide_out_left"
+            app:popEnterAnim="@transition/slide_in_left"
+            app:popExitAnim="@transition/slide_out_right"
+            app:popUpTo="@+id/blankFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/third"
+        android:name="com.example.learnnavigation.third"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/third_to_4"
+            app:destination="@id/fourth"
+            app:enterAnim="@transition/slide_in_right"
+            app:exitAnim="@transition/slide_out_left"
+            app:popEnterAnim="@transition/slide_in_left"
+            app:popExitAnim="@transition/slide_out_right"
+            app:popUpTo="@+id/third" />
+        <action
+            android:id="@+id/action_third_to_main2_navigation"
+            app:destination="@id/main2_navigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/fourth"
+        android:name="com.example.learnnavigation.fourth"
+        android:label="fragment_fourth"
+        tools:layout="@layout/fragment_fourth" >
+        <argument
+            android:name="someInt"
+            app:argType="integer"
+            android:defaultValue="4" />
+    </fragment>
+    <include app:graph="@navigation/main2_navigation" />
+</navigation>
