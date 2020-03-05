@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="96dp"
             android:layout_marginTop="256dp"
+            android:transitionName="buttonTran"
             android:text="Action with exclu pop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.learnnavigation.databinding.FragmentBlankBinding
 import kotlinx.android.synthetic.main.fragment_blank.*
@@ -24,8 +25,11 @@ class BlankFragment : Fragment() {
         binding.button.setOnClickListener {
             val s = 4
             val action = BlankFragmentDirections.blankTo4(s)
+
             BlankFragmentDirections.blankTo4(4)// compiler check loi ho
-            findNavController().navigate(action)
+           val extras = FragmentNavigatorExtras(button to "buttonTran")
+            findNavController().navigate(action,extras)
+
         }
 
         binding.button3.setOnClickListener {

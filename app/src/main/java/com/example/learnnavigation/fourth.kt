@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import androidx.transition.TransitionInflater
 
 /**
  * A simple [Fragment] subclass.
@@ -21,7 +22,10 @@ class fourth : Fragment() {
         // Inflate the layout for this fragment
         val safeArgs: fourthArgs by navArgs()
         Toast.makeText(activity,safeArgs.someInt.toString(),Toast.LENGTH_SHORT).show()
-        return inflater.inflate(R.layout.fragment_fourth, container, false)
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+
+
+    return inflater.inflate(R.layout.fragment_fourth, container, false)
     }
 
 
